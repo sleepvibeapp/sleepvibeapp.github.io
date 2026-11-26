@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SleepVibe: Sleep Tracker</title>
+<meta name="description" content="Get SleepVibe: Sleep Tracker for iPhone or Android.">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#FBF6EE;color:#0F2A44;font-family:Georgia,"Times New Roman",serif;-webkit-text-size-adjust:100%}
+  .wrap{max-width:480px;margin:0 auto;padding:36px 20px 40px;text-align:center}
+  .moon{font-size:56px;line-height:1;margin-bottom:8px}
+  h1{font-size:32px;margin:0 0 10px;line-height:1.2}
+  .lead{font-size:22px;margin:0 0 6px}
+  .tap{font-size:20px;margin:0 0 28px;color:#3c4f63}
+  a.btn{display:block;text-decoration:none;font-size:24px;font-weight:bold;padding:22px 16px;border-radius:18px;margin:0 0 18px;border:3px solid #0E7C7B;color:#0E7C7B;background:#fff;font-family:Arial,Helvetica,sans-serif}
+  a.btn.main{background:#0E7C7B;color:#fff;box-shadow:0 6px 16px rgba(14,124,123,.3)}
+  .hint{font-size:16px;color:#3c4f63;margin:-6px 0 20px;display:none}
+  .foot{font-size:16px;color:#5a6b7c;margin-top:26px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="moon">🌙</div>
+  <h1>SleepVibe: Sleep Tracker</h1>
+  <p class="lead">Sleep better starting tonight.</p>
+  <p class="tap">Tap the button for your phone.</p>
+  <a id="ios" class="btn main" href="https://apps.apple.com/us/app/id6831821079">📱 iPhone — App Store</a>
+  <a id="android" class="btn main" href="https://play.google.com/store/apps/details?id=com.abeabllc.sleepvibe">🤖 Android — Google Play</a>
+  <p id="hint" class="hint"></p>
+  <p class="foot">Calming sleep sounds, a gentle alarm and a simple sleep diary.<br>No account needed.</p>
+</div>
+<script>
+(function(){
+  var ua = navigator.userAgent || "";
+  var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && 'ontouchend' in document);
+  var android = /Android/i.test(ua);
+  var i = document.getElementById('ios'), a = document.getElementById('android'), h = document.getElementById('hint');
+  if (ios) { a.classList.remove('main'); a.parentNode.insertBefore(i, a); h.textContent = "You're on an iPhone: tap the top button."; h.style.display='block'; }
+  else if (android) { i.classList.remove('main'); i.parentNode.insertBefore(a, i); h.textContent = "You're on Android: tap the top button."; h.style.display='block'; }
+})();
+</script>
+</body>
+</html>
